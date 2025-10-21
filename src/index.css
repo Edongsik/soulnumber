@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ⭐️ 변경점: 아래 코드를 파일 맨 끝에 추가합니다. */
+
+@layer base {
+  body {
+    /* body 태그에 직접 그라데이션을 적용합니다. */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    @apply min-h-screen; /* body가 항상 화면 전체 높이를 갖도록 함 */
+  }
+}
+
+/* App.jsx에 있던 애니메이션 스타일을 여기로 이동 */
+.result-animation {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

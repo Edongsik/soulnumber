@@ -28,6 +28,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build # 'vite build'가 실행됩니다.
+        env:
+          BASE_URL: /soulnumber/ # 👈 이 줄을 추가합니다.
+          
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
