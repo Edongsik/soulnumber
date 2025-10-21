@@ -3,18 +3,22 @@
 import { useState } from 'react';
 import './App.css'; // App.css를 사용해도 되고, index.css를 사용해도 됩니다.
 
+// ⭐️ 1. 이 줄을 추가하세요.
+const BASE_URL = import.meta.env.BASE_URL;
+
 // 1. 타로카드 데이터를 컴포넌트 밖에 정의합니다.
 // ⭐️ 중요: 이미지 경로를 '/images/1.jpg' 처럼 /로 시작하게 바꿔야 합니다.
+// ⭐️ 2. image 경로를 수정하고 7번 오타를 수정하세요.
 const tarotCards = {
-    1: { name: "마법사 (The Magician)", image: "/images/1.png", meaning: "의지력, 창조력, 새로운 시작의 힘을 가진 당신" },
-    2: { name: "여교황 (The High Priestess)", image: "/images/2.png", meaning: "직감과 내면의 지혜, 신비로운 통찰력을 지닌 당신" },
-    3: { name: "여황제 (The Empress)", image: "/images/3.png", meaning: "풍요로움과 창조성, 모성애와 자연의 힘을 가진 당신" },
-    4: { name: "황제 (The Emperor)", image: "/images/4.png", meaning: "권위와 안정성, 강한 리더십과 질서를 추구하는 당신" },
-    5: { name: "교황 (The Hierophant)", image: "/images/5.png", meaning: "전통과 지혜, 영적 가르침과 도덕성을 중시하는 당신" },
-    6: { name: "연인 (The Lovers)", image: "/images/6.png", meaning: "사랑과 조화, 선택과 관계에서 균형을 찾는 당신" },
-    7: { name: "전차 (The Chariot)", image: "/images/7.png", meaning: "의지력과 승리, 목표를 향한 강한 추진력을 가진 당신" }, // <--- 콜론으로 수정!
-    8: { name: "힘 (Strength)", image: "/images/8.png", meaning: "내면의 힘과 용기, 부드러움으로 강함을 다스리는 당신" },
-    9: { name: "은둔자 (The Hermit)", image: "/images/9.png", meaning: "내면의 탐구와 지혜, 홀로서기와 성찰을 통한 깨달음을 얻는 당신" }
+    1: { name: "마법사 (The Magician)", image: `${BASE_URL}images/1.png`, meaning: "의지력, 창조력, 새로운 시작의 힘을 가진 당신" },
+    2: { name: "여교황 (The High Priestess)", image: `${BASE_URL}images/2.png`, meaning: "직감과 내면의 지혜, 신비로운 통찰력을 지닌 당신" },
+    3: { name: "여황제 (The Empress)", image: `${BASE_URL}images/3.png`, meaning: "풍요로움과 창조성, 모성애와 자연의 힘을 가진 당신" },
+    4: { name: "황제 (The Emperor)", image: `${BASE_URL}images/4.png`, meaning: "권위와 안정성, 강한 리더십과 질서를 추구하는 당신" },
+    5: { name: "교황 (The Hierophant)", image: `${BASE_URL}images/5.png`, meaning: "전통과 지혜, 영적 가르침과 도덕성을 중시하는 당신" },
+    6: { name: "연인 (The Lovers)", image: `${BASE_URL}images/6.png`, meaning: "사랑과 조화, 선택과 관계에서 균형을 찾는 당신" },
+    7: { name: "전차 (The Chariot)", image: `${BASE_URL}images/7.png`, meaning: "의지력과 승리, 목표를 향한 강한 추진력을 가진 당신" }, // 7. -> 7:
+    8: { name: "힘 (Strength)", image: `${BASE_URL}images/8.png`, meaning: "내면의 힘과 용기, 부드러움으로 강함을 다스리는 당신" },
+    9: { name: "은둔자 (The Hermit)", image: `${BASE_URL}images/9.png`, meaning: "내면의 탐구와 지혜, 홀로서기와 성찰을 통한 깨달음을 얻는 당신" }
 };
 
 // 2. 애니메이션을 위한 CSS (public/index.html의 style 태그 내용)
